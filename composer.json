@@ -1,0 +1,21 @@
+{
+    "type": "webapp",
+    "description": "Example implementation of srsbiz/polish-nace-codes ",
+    "licene": "MIT",
+    "authors": [
+        {
+            "name": "Radosław Kowalewski",
+            "email": "git@srsbiz.pl"
+        }
+    ],
+    "require": {
+        "php": ">= 8.1",
+        "srsbiz/polish-nace-codes": "^1.1"
+    },
+    "scripts": {
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S 127.0.0.1:8000 -t public"
+        ]
+    }
+}
