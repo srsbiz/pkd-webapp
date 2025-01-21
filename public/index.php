@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-$pkd = isset($_POST['pkd']) ? substr(trim(htmlspecialchars($_POST['pkd'])), 0, 7) : '';
+$pkd = isset($_REQUEST['pkd']) ? trim($_REQUEST['pkd']) : '';
 
 ?><!doctype html>
 <html lang="pl" data-theme="dark">
@@ -35,10 +35,10 @@ $pkd = isset($_POST['pkd']) ? substr(trim(htmlspecialchars($_POST['pkd'])), 0, 7
     <body>
         <main>
             <h1 class="text-center">Sprawdź PKD w wersjach 2007 oraz 2025</h1>
-            <form method="post" hx-post="/pkd.php" hx-target="#result" hx-swap="innerHTML" hx-trigger="keyup[target.value.length > 6] delay:500ms changed">
+            <form method="post" hx-post="/pkd.php" hx-target="#result" hx-swap="innerHTML" hx-trigger="keyup[target.value.length > 2] delay:500ms changed">
                 <fieldset role="group">
-                    <input type="text" name="pkd" maxlength="7" placeholder="00.00.X" pattern="\d{2}\.\d{2}\.[A-Za-z]"
-                           class="text-center" value="<?= $pkd ?>" aria-label="PKD" id="#pkd"
+                    <input type="text" name="pkd" placeholder="00.00.X lub fragment opisu"
+                           class="text-center" value="<?= htmlspecialchars($pkd); ?>" aria-label="PKD" id="pkd"
                     />
                     <button type="submit" name="action" value="submit">
                         <span class="htmx-indicator" aria-busy="true"> Sprawdzam</span>

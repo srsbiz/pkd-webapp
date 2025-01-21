@@ -10,6 +10,7 @@
     ],
     "require": {
         "php": ">= 8.1",
+        "ext-mbstring": "*",
         "srsbiz/polish-nace-codes": "^1.1"
     },
     "scripts": {
